@@ -15,6 +15,12 @@ v0.22 + 1
   removed. Use `git_repository_set_ident()` and
   `git_repository_ident()` to override the signature to be used.
 
+* Reference renaming now uses the right id for the old value.
+
+* The annotated version of branch creation, HEAD detaching and reset
+  allow for specifying the expression from the user to be put into the
+  reflog.
+
 ### API additions
 
 * Parsing and retrieving a configuration value as a path is exposed
@@ -30,7 +36,13 @@ v0.22 + 1
 * `git_config_get_string_buf()` provides a way to safely retrieve a
   string from a non-snapshot configuration.
 
-* Reference renaming now uses the right id for the old value.
+* `git_annotated_commit_from_revspec()` allows to get an annotated
+  commit from an extended sha synatx string.
+
+* `git_repository_set_head_detached_annotated()`,
+  `git_branch_create_annotated()` and `git_reset_annotated()` allow
+  for the caller to provide an annotated commit through which they can
+  control what expression is put into the reflog as the source/target.
 
 ### API removals
 
